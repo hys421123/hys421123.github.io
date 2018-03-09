@@ -105,9 +105,6 @@
 <meta property="og:image" content="http://yoursite.com/images/passages/OracleImportData/img1.png">
 <meta property="og:image" content="http://yoursite.com/images/passages/OracleExcelForm/img1.png">
 <meta property="og:image" content="http://yoursite.com/images/passages/OracleExcelForm/img2.png">
-<meta property="og:image" content="http://yoursite.com/images/passages/OracleImportData/img1.png">
-<meta property="og:image" content="http://yoursite.com/images/passages/OracleExcelForm/img1.png">
-<meta property="og:image" content="http://yoursite.com/images/passages/OracleExcelForm/img2.png">
 <meta property="og:updated_time" content="2018-01-23T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle通过Excel建表操作说明">
@@ -394,45 +391,11 @@
         <p>Oracle数据库导入操作<br><a id="more"></a></p>
 <ul>
 <li>图1 Excel中表数据<br><img src="/images/passages/OracleImportData\img1.png"></li>
-<li>表1 Excel建表字段<table>  <tr>    <th>字段名</th>    <th>字段类型</th>    <th>是否为空</th>    <th>字段注释</th>  </tr><br><tr>    <td>OAE001</td>    <td>hNUMBER(22)</td>    <td>N</td>    <td>唯一索引</td>  </tr><br><tr>    <td>AAC051</td>    <td>NUMBER(22)</td>    <td>N</td>    <td>人员变更流水号</td>  </tr><br><tr>    <td>AAC001</td>    <td>VARCHAR2(14)</td>    <td>N</td>    <td>个人编号</td>  </tr><br><tr>    <td>AAC061</td>    <td>NUMBER(22)</td>    <td>Y</td>    <td>申报流水号</td>  </tr><br><tr>    <td>AAE035</td>    <td>DATE(7)</td>    <td>N</td>    <td>变更日期</td>  </tr></table>
+<li>表1 Excel建表字段<table>  <tr>    <th>字段名</th>    <th>字段类型</th>    <th>是否为空</th>    <th>字段注释</th>  </tr>  <tr>    <td>OAE001</td>    <td>hNUMBER(22)</td>    <td>N</td>    <td>唯一索引</td>  </tr>  <tr>    <td>AAC051</td>    <td>NUMBER(22)</td>    <td>N</td>    <td>人员变更流水号</td>  </tr>  <tr>    <td>AAC001</td>    <td>VARCHAR2(14)</td>    <td>N</td>    <td>个人编号</td>  </tr>    <tr>    <td>AAC061</td>    <td>NUMBER(22)</td>    <td>Y</td>    <td>申报流水号</td>  </tr>  <tr>    <td>AAE035</td>    <td>DATE(7)</td>    <td>N</td>    <td>变更日期</td>  </tr></table>
 
 </li>
 </ul>
 <h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
-<li>将上述建表数据复制粘贴到Excel文档中；</li>
-<li>编辑 Excel表格，让Excel数据格式与Oracle中Columns的数据格式保持一致，下图通过插入空列使两者格式一致；</li>
-</ol>
-<ul>
-<li>图1 修改的Excel表<br><img src="/images/passages/OracleExcelForm\img1.png"></li>
-<li>图2 对应数据库数据表格式<br><img src="/images/passages/OracleExcelForm\img2.png"></li>
-</ul>
-<ol>
-<li>修改Excel数据，将不符合规范的数据类型改正，如DATE(7) -&gt; DATE。</li>
-<li>打开PL/SQ Developer的Oracle数据库工具，File-&gt; New-&gt; Table新建数据表，将Excel中的数据复制粘贴到数据库Columns栏目中。</li>
-<li>点击View SQL，添加其他设置语句。<br><pre><br>alter table <font color="red">T_tableName</font><br>add constraint <font color="red">PK_T_tableName </font>primary key (<font color="red">id</font>)<br>using index<br>tablespace CN185<br>pctfree 10<br>initrans 2<br>maxtrans 255<br>storage<br>(<br>initial 64K<br>next 1M<br>minextents 1<br>maxextents unlimited<br>);</pre></li>
-</ol>
-<p></p>
-<ol>
-<li>点击Apply，成功建表。(注释：若有报错，改正错误后再应用即可)</li>
-</ol>
-<hr>
-<p>title: Oracle通过Excel建表操作说明<br>date: 2018-01-24<br>updated: 2018-01-24<br>tags:</p>
-<ul>
-<li>oracle</li>
-</ul>
-<p>categories:</p>
-<ul>
-<li>数据库</li>
-</ul>
-<hr>
-<p>Oracle数据库导入操作<br><!--more--></p>
-<ul>
-<li>图1 Excel中表数据<br><img src="/images/passages/OracleImportData\img1.png"></li>
-<li>表1 Excel建表字段<table>  <tr>    <th>字段名</th>    <th>字段类型</th>    <th>是否为空</th>    <th>字段注释</th>  </tr><br><tr>    <td>OAE001</td>    <td>hNUMBER(22)</td>    <td>N</td>    <td>唯一索引</td>  </tr><br><tr>    <td>AAC051</td>    <td>NUMBER(22)</td>    <td>N</td>    <td>人员变更流水号</td>  </tr><br><tr>    <td>AAC001</td>    <td>VARCHAR2(14)</td>    <td>N</td>    <td>个人编号</td>  </tr><br><tr>    <td>AAC061</td>    <td>NUMBER(22)</td>    <td>Y</td>    <td>申报流水号</td>  </tr><br><tr>    <td>AAE035</td>    <td>DATE(7)</td>    <td>N</td>    <td>变更日期</td>  </tr></table>
-
-</li>
-</ul>
-<h3 id="操作步骤-1"><a href="#操作步骤-1" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
 <li>将上述建表数据复制粘贴到Excel文档中；</li>
 <li>编辑 Excel表格，让Excel数据格式与Oracle中Columns的数据格式保持一致，下图通过插入空列使两者格式一致；</li>
 </ol>
@@ -631,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作步骤"><span class="nav-number">1.</span> <span class="nav-text">操作步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作步骤-1"><span class="nav-number">2.</span> <span class="nav-text">操作步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作步骤"><span class="nav-number">1.</span> <span class="nav-text">操作步骤</span></a></li></ol></div>
             
 
           </div>
